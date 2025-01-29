@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 import java.util.OptionalDouble;
 
-public class ZScorer {
-    public ArrayList<Double> zScorer(ArrayList<Double> List, int sample) {
+public class SDScorer {
+    public ArrayList<Double> sdScorer(ArrayList<Double> List, int sample) {
         OptionalDouble weirdAverage = List.stream().mapToDouble(a -> a).average();
         double average = weirdAverage.getAsDouble();
         double difference = 0;
@@ -11,12 +11,12 @@ public class ZScorer {
             difference += Math.pow(value, 2);
         }
         double sd = Math.sqrt(difference / (List.size() - sample));
-        ArrayList<Double> zScored = new ArrayList<>();
+        ArrayList<Double> sdScored = new ArrayList<>();
         for (Double item : List) {
             double change = item - average;
-            double zScore = change / sd;
-            zScored.add(zScore);
+            double sdScore = change / sd;
+            sdScored.add(sdScore);
         }
-        return zScored;
+        return sdScored;
     }
 }
