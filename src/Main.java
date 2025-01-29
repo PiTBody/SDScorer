@@ -14,8 +14,8 @@ public class Main {
             value = sc.nextDouble();
         }
         if (!List.isEmpty()) {
-            ZScorer zScorer = new ZScorer();
-            System.out.println(zScorer.zScorer(List, sample));
+            SDScorer sdScorer = new SDScorer();
+            System.out.println(sdScorer.zScorer(List, sample));
         } else {
             System.out.println("No SD is possible without some elements of the set.");
         }
